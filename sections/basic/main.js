@@ -14,11 +14,11 @@ const listRepos = async username => {
         </li>
       `
     )
-    .join('');
+    .join("");
 
-  const content = document.getElementById('content');
+  const content = document.getElementById("content");
 
   content.innerHTML = `<ul>${markup}</ul>`;
 };
 
-listRepos('jlengstorf');
+listRepos("JackGaark");
