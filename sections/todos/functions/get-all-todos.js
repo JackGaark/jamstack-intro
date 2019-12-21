@@ -1,14 +1,15 @@
 const sendQuery = require("./utils/send-query");
+
 const GET_ALL_TODOS = `
-query {
-  allTodos {
-    data {
-      _id
-      text
-      completed
+  query {
+    allTodos {
+      data {
+        _id
+        text
+        completed
+      }
     }
   }
-}
 `;
 
 exports.handler = async () => {
