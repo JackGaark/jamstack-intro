@@ -1,5 +1,5 @@
 import React from "react";
-import Styles from "./todo.module.css";
+import styles from "./todo.module.css";
 
 const Todo = ({ todo }) => {
   return (

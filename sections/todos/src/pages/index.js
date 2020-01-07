@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import styles from "./index.module.css";
 import axios from "axios";
-import Todos from "../components/todo";
+import styles from "./index.module.css";
+import Form from "../components/form";
+import Todo from "../components/todo";
 
 export default () => {
   const [status, setStatus] = useState("loading");
@@ -10,24 +11,27 @@ export default () => {
   useEffect(() => {
     let canceled = false;
 
-    if (status !== loading) return;
+    if (status !== "loading") return;
+
     axios("/api/get-all-todos").then(result => {
       if (canceled === true) return;
 
       if (result.status !== 200) {
-        console.error("Error");
-        console.error();
+        console.error("Error loading todos!");
+        console.error(result);
         return;
       }
 
       setTodos(result.data.todos);
-      setTodos("loaded");
+      setStatus("loaded");
     });
 
     return () => {
       canceled = true;
     };
   }, [status]);
+
+  const reloadTodos = () => setStatus("loading");
 
   return (
     <main>
