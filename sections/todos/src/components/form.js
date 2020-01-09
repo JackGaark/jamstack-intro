@@ -17,14 +17,14 @@ const Form = ({ reloadTodos }) => {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.form}>
       <label className={styles.label}>
         Add a Todo
         <input
           type="text"
-          className={styles.input}
           value={text}
           onChange={event => setText(event.target.value)}
+          className={styles.input}
         />
       </label>
       <button className={styles.button}>Save Todo</button>
